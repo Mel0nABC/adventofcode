@@ -8,8 +8,8 @@ public class App {
         long tiempoInicio = System.nanoTime();
 
         // Código cuyo tiempo de ejecución quieres medir
-        Day1.partOneOne();
-        Day1.partOneTwo();
+        // Day1.partOneOne();
+        // Day1.partOneTwo();
         Day2.partTwoComplete();
 
         // Registrar el tiempo final
