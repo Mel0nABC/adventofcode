@@ -3,6 +3,7 @@ package com.ejemplo;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -166,7 +167,7 @@ public class Day4 {
 
     // JUEGO 2
     public static void masSam() {
-
+        // searchMS(0, 0);
         for (int x = 0; x < matriz.size(); x++) {
             for (int y = 0; y < matriz.get(x).toCharArray().length; y++) {
                 System.out.println(x + "-" + y);
@@ -175,7 +176,6 @@ public class Day4 {
                 }
 
             }
-
         }
         System.out.println("RESULTADO --> " + contador);
     }
@@ -183,34 +183,19 @@ public class Day4 {
     public static void searchMS(int x, int y) {
         try {
             int vuelta = 0;
-            if (matriz.get(x - 1).toCharArray()[y - 1] == 'M') {
-                if (matriz.get(x + 1).toCharArray()[y + 1] == 'S') {
-                    vuelta++;
+            for (int xx : Arrays.asList(-1, 1)) {
+                for (int yy : Arrays.asList(-1, 1)) {
+                    if (matriz.get((x + xx)).toCharArray()[y + yy] == 'M') {
+                        if (matriz.get(x - xx).toCharArray()[y - yy] == 'S') {
+                            vuelta++;
+                        }
+                    }
                 }
             }
-
-            if (matriz.get(x + 1).toCharArray()[y - 1] == 'M') {
-                if (matriz.get(x - 1).toCharArray()[y + 1] == 'S') {
-                    vuelta++;
-                }
-            }
-
-            if (matriz.get(x - 1).toCharArray()[y + 1] == 'M') {
-                if (matriz.get(x + 1).toCharArray()[y - 1] == 'S') {
-                    vuelta++;
-                }
-            }
-
-            if (matriz.get(x + 1).toCharArray()[y + 1] == 'M') {
-                if (matriz.get(x - 1).toCharArray()[y - 1] == 'S') {
-                    vuelta++;
-                }
-
-            }
-
             if (vuelta == 2) {
                 contador++;
             }
+
         } catch (Exception e) {
             // TODO: handle exception
         }
