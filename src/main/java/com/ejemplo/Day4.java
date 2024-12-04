@@ -182,17 +182,17 @@ public class Day4 {
 
     public static void searchMS(int x, int y) {
         try {
-            int vuelta = 0;
+            int masCount = 0;
             for (int xx : Arrays.asList(-1, 1)) {
                 for (int yy : Arrays.asList(-1, 1)) {
                     if (matriz.get((x + xx)).toCharArray()[y + yy] == 'M') {
                         if (matriz.get(x - xx).toCharArray()[y - yy] == 'S') {
-                            vuelta++;
+                            masCount++;
                         }
                     }
                 }
             }
-            if (vuelta == 2) {
+            if (masCount == 2) {
                 contador++;
             }
 
