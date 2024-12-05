@@ -18,8 +18,8 @@ public class Day4 {
 
     public static void main(String[] args) {
         readFile();
-        // xmasSamx();
-        masSam();
+        xmasSamx();
+        // masSam();
     }
 
     public static void readFile() {
@@ -53,6 +53,26 @@ public class Day4 {
             }
         }
         System.out.println("RESULTADO --> " + contador);
+    }
+
+    public static int posX(int posX) {
+        if (posX < 0)
+            posX = 0;
+
+        if (posX >= matriz.size())
+            posX = matriz.size() - 1;
+
+        return posX;
+    }
+
+    public static int posY(int posY) {
+
+        if (posY < 0)
+            posY = 0;
+
+        if (posY >= matriz.get(0).toCharArray().length)
+            posY = matriz.get(0).toCharArray().length - 1;
+        return posY;
     }
 
     public static void horizontalAdelante(String fila) {
